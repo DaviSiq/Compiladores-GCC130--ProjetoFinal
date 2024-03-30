@@ -1,0 +1,19 @@
+código fibonacci
+{
+    firme fib <- 0|
+    firme fibAnterior <- 0|
+    firme fibAtual <- 1|
+    firme contador <- 0|
+
+    mandaAi fibTermo|
+
+    repete?! (contador dmaior fibTermo) {
+        leQuemSabe fibAtual|
+        
+        fib <- fibAtual|
+        fibAtual <- fibAtual junta fibAnterior|
+        fibAnterior <- fib|
+        
+        contador <- contador junta 1|
+    }
+}
