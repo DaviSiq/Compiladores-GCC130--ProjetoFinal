@@ -7,7 +7,7 @@ código fibonacci
 
     mandaAi fibTermo|
 
-    repete?! (contador dmaior fibTermo) {
+    repete (contador dmaior fibTermo) {
         leQuemSabe fibAtual|
         
         fib <- fibAtual|
