@@ -8,7 +8,7 @@ public class ExemploLexer {
 
         System.out.println("Compiladores - Projeto Final");
         //Coloque o path do arquivo de teste da sua maquina aqui.
-        String filename = "C:\\Insira\\Seu\\Path\\Compiladores-GCC130--ProjetoFinal\\casosTeste\\fatorial giriaScript.txt";
+        String filename = "C:\\Users\\marci\\Desktop\\Faculdade\\Compiladores\\Compiladores-GCC130--ProjetoFinal\\src\\fatorial_giriaScript.txt";
 
         try {
             CharStream input = CharStreams.fromFileName(filename);
@@ -16,7 +16,7 @@ public class ExemploLexer {
             CommonTokenStream tokens = new CommonTokenStream(lexer);
             giriaScriptParser parser = new giriaScriptParser(tokens);
             //Obtendo a arvore
-            ParserRuleContext ast = parser.inicio();
+            ParserRuleContext ast = parser.start();
 
             // Obtém a árvore de análise sintática a partir da regra 'inicio'
             System.out.println(ast.toStringTree(parser));
