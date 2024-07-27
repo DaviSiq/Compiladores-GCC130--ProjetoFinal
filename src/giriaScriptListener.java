@@ -7,15 +7,15 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface giriaScriptListener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by {@link giriaScriptParser#inicio}.
+	 * Enter a parse tree produced by {@link giriaScriptParser#start}.
 	 * @param ctx the parse tree
 	 */
-	void enterInicio(giriaScriptParser.InicioContext ctx);
+	void enterStart(giriaScriptParser.StartContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link giriaScriptParser#inicio}.
+	 * Exit a parse tree produced by {@link giriaScriptParser#start}.
 	 * @param ctx the parse tree
 	 */
-	void exitInicio(giriaScriptParser.InicioContext ctx);
+	void exitStart(giriaScriptParser.StartContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link giriaScriptParser#declaracao}.
 	 * @param ctx the parse tree

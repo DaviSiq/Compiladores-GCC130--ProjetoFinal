@@ -16,13 +16,13 @@ public class giriaScriptBaseListener implements giriaScriptListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterInicio(giriaScriptParser.InicioContext ctx) { }
+	@Override public void enterStart(giriaScriptParser.StartContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitInicio(giriaScriptParser.InicioContext ctx) { }
+	@Override public void exitStart(giriaScriptParser.StartContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

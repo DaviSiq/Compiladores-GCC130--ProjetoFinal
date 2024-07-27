@@ -20,12 +20,12 @@ public class giriaScriptParser extends Parser {
 		FB=11, AP=12, FP=13, FL=14, LOGIC=15, RELAC=16, ID=17, NUM=18, BOOL=19, 
 		WS=20, ERROR=21;
 	public static final int
-		RULE_inicio = 0, RULE_declaracao = 1, RULE_algoritmo = 2, RULE_instr = 3, 
+		RULE_start = 0, RULE_declaracao = 1, RULE_algoritmo = 2, RULE_instr = 3, 
 		RULE_atrib = 4, RULE_interc = 5, RULE_acao = 6, RULE_valores = 7, RULE_operacao = 8, 
 		RULE_operando_cauda = 9, RULE_condicao = 10;
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"inicio", "declaracao", "algoritmo", "instr", "atrib", "interc", "acao", 
+			"start", "declaracao", "algoritmo", "instr", "atrib", "interc", "acao", 
 			"valores", "operacao", "operando_cauda", "condicao"
 		};
 	}
@@ -97,7 +97,7 @@ public class giriaScriptParser extends Parser {
 	}
 
 	@SuppressWarnings("CheckReturnValue")
-	public static class InicioContext extends ParserRuleContext {
+	public static class StartContext extends ParserRuleContext {
 		public TerminalNode EOF() { return getToken(giriaScriptParser.EOF, 0); }
 		public DeclaracaoContext declaracao() {
 			return getRuleContext(DeclaracaoContext.class,0);
@@ -105,23 +105,23 @@ public class giriaScriptParser extends Parser {
 		public AlgoritmoContext algoritmo() {
 			return getRuleContext(AlgoritmoContext.class,0);
 		}
-		public InicioContext(ParserRuleContext parent, int invokingState) {
+		public StartContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_inicio; }
+		@Override public int getRuleIndex() { return RULE_start; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).enterInicio(this);
+			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).enterStart(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).exitInicio(this);
+			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).exitStart(this);
 		}
 	}
 
-	public final InicioContext inicio() throws RecognitionException {
-		InicioContext _localctx = new InicioContext(_ctx, getState());
-		enterRule(_localctx, 0, RULE_inicio);
+	public final StartContext start() throws RecognitionException {
+		StartContext _localctx = new StartContext(_ctx, getState());
+		enterRule(_localctx, 0, RULE_start);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);

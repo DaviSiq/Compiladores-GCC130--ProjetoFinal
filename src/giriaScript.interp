@@ -47,7 +47,7 @@ WS
 ERROR
 
 rule names:
-inicio
+start
 declaracao
 algoritmo
 instr

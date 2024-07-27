@@ -25,7 +25,7 @@ ERROR: .;
 fragment LETRA: [a-zA-Z];
 fragment DIGITO: [0-9];
 
-inicio: (declaracao algoritmo)? EOF;
+start: (declaracao algoritmo)? EOF;
 declaracao: COD ID;
 algoritmo: AB (instr)+ FB;
 instr: atrib | interc | acao ;
