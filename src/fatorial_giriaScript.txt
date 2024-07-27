@@ -1,0 +1,12 @@
+codigo fatorial
+{
+firme fatorial <- 1|
+firme numero| 
+mandaAi numero|
+firme auxiliar <- 1|
+repete(numero dmaior 0) {
+	fatorial <- fatorial mutiprica numero|
+	numero <- numero tira 1|
+	}
+lequemSabe fatorial|
+}
