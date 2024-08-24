@@ -1,0 +1,6 @@
+{
+    firme valor <- 10|
+
+    resultado <- valor junta valorNaoDeclarado| // Aqui ocorre o uso de uma variável não declarada
+    leQuemSabe resultado|
+}

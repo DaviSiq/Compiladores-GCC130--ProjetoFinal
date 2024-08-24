@@ -1,0 +1,12 @@
+código fatorial
+{
+firme fatorial <- 0|
+firme numero|
+mandaAi numero|
+firme auxiliar <- 1|
+repete?!(numero dmaior 0) {
+	fatorial <- fatorial mutiprica|
+	auxiliar <- auxiliar junta 1|
+	}
+leQuemSabe fatorial|
+}

@@ -1,0 +1,5 @@
+{
+    firme valor <- 5|
+    mole valor <- 3.14| // Aqui ocorre a duplicação de variável
+    leQuemSabe valor|
+}
