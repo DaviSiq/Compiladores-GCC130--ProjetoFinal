@@ -33,7 +33,7 @@ instr: (atrib | interc | acao) #Funcionalidades;
 atrib: (TIPOS ID ATRIB operacao FL
      | TIPOS ID FL
      | ID ATRIB operacao FL) #Atribuicao;
-interc: (ESC ID FL  //Escreve
+interc: (ESC valores FL  //Escreve
     | LEIT ID FL) #Interacao; //Lê
 acao: (ER AP condicao FP algoritmo //Loop
     | EC AP condicao FP algoritmo) #Funcao ;//Condiconal

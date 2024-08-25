@@ -33,10 +33,14 @@ public class MyListener extends giriaScriptBaseListener{
         }
     }
 
-    //Variavel não declarada
     @Override
-    public void enterOperacaoMaquina(giriaScriptParser.OperacaoMaquinaContext ctx) {
-        System.out.println("Operacao: " + ctx.getText());
+    public void exitInteracao(giriaScriptParser.InteracaoContext ctx) {
+        System.out.println("Interacao: " + ctx.getText());
+        if((ctx.ID()!=null && tabelaSimbolos.containsKey(ctx.ID().getText()))
+                || (ctx.valores()!=null && Tipagem.confereDentreTipos(ctx.valores().getText())!=null)){ // verifica variável não declarada ou tipo incorreto
+            return;
+        }
+        System.out.println("Não foi possivel resolver: " + ctx.getText());
     }
 
     @Override

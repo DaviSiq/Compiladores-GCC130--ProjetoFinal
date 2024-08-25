@@ -8,7 +8,7 @@ public class ExemploLexer {
 
         System.out.println("Compiladores - Projeto Final");
         //Coloque o path do arquivo de teste da sua maquina aqui.
-        String filename = "C:\\Users\\marci\\Desktop\\Faculdade\\Compiladores\\Compiladores-GCC130--ProjetoFinal\\casosTeste\\variavelDuplicada giriaScript.txt";
+        String filename = "C:\\Users\\marci\\Desktop\\Faculdade\\Compiladores\\Compiladores-GCC130--ProjetoFinal\\casosTeste\\variavelNaoDeclarada giriaScript.txt";
 
         try {
             CharStream input = CharStreams.fromFileName(filename);
