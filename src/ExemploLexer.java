@@ -30,7 +30,7 @@ public class ExemploLexer {
             walker.walk(myListener, ast);
 
             //Imprime a tabela de simbolos
-            System.out.println(myListener.tabelaSimbolos.toString());
+            System.out.println(myListener.getTabelaSimbolos().toString());
 
 
         }

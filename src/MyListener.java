@@ -1,5 +1,4 @@
 import Util.Tipagem;
-import org.antlr.v4.runtime.ParserRuleContext;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,7 +7,11 @@ import java.util.Map;
 
 public class MyListener extends giriaScriptBaseListener{
 
-    public Map<String, Tipagem> tabelaSimbolos = new HashMap<String, Tipagem>();
+    private Map<String, Tipagem> tabelaSimbolos = new HashMap<String, Tipagem>();
+
+    public Map<String, Tipagem> getTabelaSimbolos() {
+        return tabelaSimbolos;
+    }
 
     @Override
     public void exitAtribuicao(giriaScriptParser.AtribuicaoContext ctx) {
