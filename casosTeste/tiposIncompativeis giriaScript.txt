@@ -1,0 +1,7 @@
+{
+    firme valorInteiro <- 10|
+    duascara valorBooleano <- dboa|
+
+    firme resultado <- valorInteiro junta valorBooleano| // Aqui ocorre a incompatibilidade de tipos
+    leQuemSabe resultado|
+}
