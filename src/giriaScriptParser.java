@@ -22,11 +22,11 @@ public class giriaScriptParser extends Parser {
 	public static final int
 		RULE_start = 0, RULE_declaracao = 1, RULE_algoritmo = 2, RULE_instr = 3, 
 		RULE_atrib = 4, RULE_interc = 5, RULE_acao = 6, RULE_valores = 7, RULE_operacao = 8, 
-		RULE_operando_cauda = 9, RULE_condicao = 10;
+		RULE_condicao = 9;
 	private static String[] makeRuleNames() {
 		return new String[] {
 			"start", "declaracao", "algoritmo", "instr", "atrib", "interc", "acao", 
-			"valores", "operacao", "operando_cauda", "condicao"
+			"valores", "operacao", "condicao"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -136,19 +136,19 @@ public class giriaScriptParser extends Parser {
 			_localctx = new InicializacaoContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(25);
+			setState(23);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==COD) {
 				{
-				setState(22);
+				setState(20);
 				declaracao();
-				setState(23);
+				setState(21);
 				algoritmo();
 				}
 			}
 
-			setState(27);
+			setState(25);
 			match(EOF);
 			}
 		}
@@ -197,9 +197,9 @@ public class giriaScriptParser extends Parser {
 			_localctx = new BlocoInicialContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(29);
+			setState(27);
 			match(COD);
-			setState(30);
+			setState(28);
 			match(ID);
 			}
 		}
@@ -255,23 +255,23 @@ public class giriaScriptParser extends Parser {
 			_localctx = new BlocoFuncionalContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(32);
+			setState(30);
 			match(AB);
-			setState(34); 
+			setState(32); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(33);
+				setState(31);
 				instr();
 				}
 				}
-				setState(36); 
+				setState(34); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & 132036L) != 0) );
-			setState(38);
+			setState(36);
 			match(FB);
 			}
 		}
@@ -327,27 +327,27 @@ public class giriaScriptParser extends Parser {
 			_localctx = new FuncionalidadesContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(43);
+			setState(41);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case TIPOS:
 			case ID:
 				{
-				setState(40);
+				setState(38);
 				atrib();
 				}
 				break;
 			case ESC:
 			case LEIT:
 				{
-				setState(41);
+				setState(39);
 				interc();
 				}
 				break;
 			case ER:
 			case EC:
 				{
-				setState(42);
+				setState(40);
 				acao();
 				}
 				break;
@@ -384,13 +384,10 @@ public class giriaScriptParser extends Parser {
 		public TerminalNode TIPOS() { return getToken(giriaScriptParser.TIPOS, 0); }
 		public TerminalNode ID() { return getToken(giriaScriptParser.ID, 0); }
 		public TerminalNode ATRIB() { return getToken(giriaScriptParser.ATRIB, 0); }
-		public ValoresContext valores() {
-			return getRuleContext(ValoresContext.class,0);
-		}
-		public TerminalNode FL() { return getToken(giriaScriptParser.FL, 0); }
 		public OperacaoContext operacao() {
 			return getRuleContext(OperacaoContext.class,0);
 		}
+		public TerminalNode FL() { return getToken(giriaScriptParser.FL, 0); }
 		public AtribuicaoContext(AtribContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -409,42 +406,42 @@ public class giriaScriptParser extends Parser {
 			_localctx = new AtribuicaoContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(59);
+			setState(57);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,3,_ctx) ) {
 			case 1:
 				{
-				setState(45);
+				setState(43);
 				match(TIPOS);
-				setState(46);
+				setState(44);
 				match(ID);
-				setState(47);
+				setState(45);
 				match(ATRIB);
-				setState(48);
-				valores();
-				setState(49);
+				setState(46);
+				operacao();
+				setState(47);
 				match(FL);
 				}
 				break;
 			case 2:
 				{
-				setState(51);
+				setState(49);
 				match(TIPOS);
-				setState(52);
+				setState(50);
 				match(ID);
-				setState(53);
+				setState(51);
 				match(FL);
 				}
 				break;
 			case 3:
 				{
-				setState(54);
+				setState(52);
 				match(ID);
-				setState(55);
+				setState(53);
 				match(ATRIB);
-				setState(56);
+				setState(54);
 				operacao();
-				setState(57);
+				setState(55);
 				match(FL);
 				}
 				break;
@@ -498,26 +495,26 @@ public class giriaScriptParser extends Parser {
 			_localctx = new InteracaoContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(67);
+			setState(65);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case ESC:
 				{
-				setState(61);
+				setState(59);
 				match(ESC);
-				setState(62);
+				setState(60);
 				match(ID);
-				setState(63);
+				setState(61);
 				match(FL);
 				}
 				break;
 			case LEIT:
 				{
-				setState(64);
+				setState(62);
 				match(LEIT);
-				setState(65);
+				setState(63);
 				match(ID);
-				setState(66);
+				setState(64);
 				match(FL);
 				}
 				break;
@@ -579,34 +576,34 @@ public class giriaScriptParser extends Parser {
 			_localctx = new FuncaoContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(81);
+			setState(79);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case ER:
 				{
-				setState(69);
+				setState(67);
 				match(ER);
-				setState(70);
+				setState(68);
 				match(AP);
-				setState(71);
+				setState(69);
 				condicao();
-				setState(72);
+				setState(70);
 				match(FP);
-				setState(73);
+				setState(71);
 				algoritmo();
 				}
 				break;
 			case EC:
 				{
-				setState(75);
+				setState(73);
 				match(EC);
-				setState(76);
+				setState(74);
 				match(AP);
-				setState(77);
+				setState(75);
 				condicao();
-				setState(78);
+				setState(76);
 				match(FP);
-				setState(79);
+				setState(77);
 				algoritmo();
 				}
 				break;
@@ -663,7 +660,7 @@ public class giriaScriptParser extends Parser {
 			_localctx = new TiposValoresContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(83);
+			setState(81);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 1966080L) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -700,18 +697,15 @@ public class giriaScriptParser extends Parser {
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class OperacaoMaquinaContext extends OperacaoContext {
-		public ValoresContext valores() {
-			return getRuleContext(ValoresContext.class,0);
+		public List<ValoresContext> valores() {
+			return getRuleContexts(ValoresContext.class);
+		}
+		public ValoresContext valores(int i) {
+			return getRuleContext(ValoresContext.class,i);
 		}
 		public List<TerminalNode> ARIT() { return getTokens(giriaScriptParser.ARIT); }
 		public TerminalNode ARIT(int i) {
 			return getToken(giriaScriptParser.ARIT, i);
-		}
-		public List<Operando_caudaContext> operando_cauda() {
-			return getRuleContexts(Operando_caudaContext.class);
-		}
-		public Operando_caudaContext operando_cauda(int i) {
-			return getRuleContext(Operando_caudaContext.class,i);
 		}
 		public OperacaoMaquinaContext(OperacaoContext ctx) { copyFrom(ctx); }
 		@Override
@@ -733,75 +727,25 @@ public class giriaScriptParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(85);
+			setState(83);
 			valores();
-			setState(90);
+			setState(88);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==ARIT) {
 				{
 				{
-				setState(86);
+				setState(84);
 				match(ARIT);
-				setState(87);
-				operando_cauda();
+				setState(85);
+				valores();
 				}
 				}
-				setState(92);
+				setState(90);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
 			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	@SuppressWarnings("CheckReturnValue")
-	public static class Operando_caudaContext extends ParserRuleContext {
-		public Operando_caudaContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_operando_cauda; }
-	 
-		public Operando_caudaContext() { }
-		public void copyFrom(Operando_caudaContext ctx) {
-			super.copyFrom(ctx);
-		}
-	}
-	@SuppressWarnings("CheckReturnValue")
-	public static class OperacaoMaquinaFimContext extends Operando_caudaContext {
-		public ValoresContext valores() {
-			return getRuleContext(ValoresContext.class,0);
-		}
-		public OperacaoMaquinaFimContext(Operando_caudaContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).enterOperacaoMaquinaFim(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).exitOperacaoMaquinaFim(this);
-		}
-	}
-
-	public final Operando_caudaContext operando_cauda() throws RecognitionException {
-		Operando_caudaContext _localctx = new Operando_caudaContext(_ctx, getState());
-		enterRule(_localctx, 18, RULE_operando_cauda);
-		try {
-			_localctx = new OperacaoMaquinaFimContext(_localctx);
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(93);
-			valores();
 			}
 		}
 		catch (RecognitionException re) {
@@ -853,27 +797,27 @@ public class giriaScriptParser extends Parser {
 
 	public final CondicaoContext condicao() throws RecognitionException {
 		CondicaoContext _localctx = new CondicaoContext(_ctx, getState());
-		enterRule(_localctx, 20, RULE_condicao);
+		enterRule(_localctx, 18, RULE_condicao);
 		int _la;
 		try {
 			_localctx = new OperacaoCondicinaMaquinaContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(95);
+			setState(91);
+			valores();
+			setState(92);
+			match(RELAC);
+			setState(93);
 			valores();
 			setState(96);
-			match(RELAC);
-			setState(97);
-			valores();
-			setState(100);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==LOGIC) {
 				{
-				setState(98);
+				setState(94);
 				match(LOGIC);
-				setState(99);
+				setState(95);
 				condicao();
 				}
 			}
@@ -893,63 +837,61 @@ public class giriaScriptParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001\u0016g\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
+		"\u0004\u0001\u0016c\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
 		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0002\u0004\u0007\u0004\u0002"+
 		"\u0005\u0007\u0005\u0002\u0006\u0007\u0006\u0002\u0007\u0007\u0007\u0002"+
-		"\b\u0007\b\u0002\t\u0007\t\u0002\n\u0007\n\u0001\u0000\u0001\u0000\u0001"+
-		"\u0000\u0003\u0000\u001a\b\u0000\u0001\u0000\u0001\u0000\u0001\u0001\u0001"+
-		"\u0001\u0001\u0001\u0001\u0002\u0001\u0002\u0004\u0002#\b\u0002\u000b"+
-		"\u0002\f\u0002$\u0001\u0002\u0001\u0002\u0001\u0003\u0001\u0003\u0001"+
-		"\u0003\u0003\u0003,\b\u0003\u0001\u0004\u0001\u0004\u0001\u0004\u0001"+
+		"\b\u0007\b\u0002\t\u0007\t\u0001\u0000\u0001\u0000\u0001\u0000\u0003\u0000"+
+		"\u0018\b\u0000\u0001\u0000\u0001\u0000\u0001\u0001\u0001\u0001\u0001\u0001"+
+		"\u0001\u0002\u0001\u0002\u0004\u0002!\b\u0002\u000b\u0002\f\u0002\"\u0001"+
+		"\u0002\u0001\u0002\u0001\u0003\u0001\u0003\u0001\u0003\u0003\u0003*\b"+
+		"\u0003\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0001"+
 		"\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0001"+
-		"\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0003\u0004<\b"+
-		"\u0004\u0001\u0005\u0001\u0005\u0001\u0005\u0001\u0005\u0001\u0005\u0001"+
-		"\u0005\u0003\u0005D\b\u0005\u0001\u0006\u0001\u0006\u0001\u0006\u0001"+
+		"\u0004\u0001\u0004\u0001\u0004\u0003\u0004:\b\u0004\u0001\u0005\u0001"+
+		"\u0005\u0001\u0005\u0001\u0005\u0001\u0005\u0001\u0005\u0003\u0005B\b"+
+		"\u0005\u0001\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0001"+
 		"\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0001"+
-		"\u0006\u0001\u0006\u0001\u0006\u0003\u0006R\b\u0006\u0001\u0007\u0001"+
-		"\u0007\u0001\b\u0001\b\u0001\b\u0005\bY\b\b\n\b\f\b\\\t\b\u0001\t\u0001"+
-		"\t\u0001\n\u0001\n\u0001\n\u0001\n\u0001\n\u0003\ne\b\n\u0001\n\u0000"+
-		"\u0000\u000b\u0000\u0002\u0004\u0006\b\n\f\u000e\u0010\u0012\u0014\u0000"+
-		"\u0001\u0001\u0000\u0011\u0014e\u0000\u0019\u0001\u0000\u0000\u0000\u0002"+
-		"\u001d\u0001\u0000\u0000\u0000\u0004 \u0001\u0000\u0000\u0000\u0006+\u0001"+
-		"\u0000\u0000\u0000\b;\u0001\u0000\u0000\u0000\nC\u0001\u0000\u0000\u0000"+
-		"\fQ\u0001\u0000\u0000\u0000\u000eS\u0001\u0000\u0000\u0000\u0010U\u0001"+
-		"\u0000\u0000\u0000\u0012]\u0001\u0000\u0000\u0000\u0014_\u0001\u0000\u0000"+
-		"\u0000\u0016\u0017\u0003\u0002\u0001\u0000\u0017\u0018\u0003\u0004\u0002"+
-		"\u0000\u0018\u001a\u0001\u0000\u0000\u0000\u0019\u0016\u0001\u0000\u0000"+
-		"\u0000\u0019\u001a\u0001\u0000\u0000\u0000\u001a\u001b\u0001\u0000\u0000"+
-		"\u0000\u001b\u001c\u0005\u0000\u0000\u0001\u001c\u0001\u0001\u0000\u0000"+
-		"\u0000\u001d\u001e\u0005\u0001\u0000\u0000\u001e\u001f\u0005\u0011\u0000"+
-		"\u0000\u001f\u0003\u0001\u0000\u0000\u0000 \"\u0005\n\u0000\u0000!#\u0003"+
-		"\u0006\u0003\u0000\"!\u0001\u0000\u0000\u0000#$\u0001\u0000\u0000\u0000"+
-		"$\"\u0001\u0000\u0000\u0000$%\u0001\u0000\u0000\u0000%&\u0001\u0000\u0000"+
-		"\u0000&\'\u0005\u000b\u0000\u0000\'\u0005\u0001\u0000\u0000\u0000(,\u0003"+
-		"\b\u0004\u0000),\u0003\n\u0005\u0000*,\u0003\f\u0006\u0000+(\u0001\u0000"+
-		"\u0000\u0000+)\u0001\u0000\u0000\u0000+*\u0001\u0000\u0000\u0000,\u0007"+
-		"\u0001\u0000\u0000\u0000-.\u0005\u0002\u0000\u0000./\u0005\u0011\u0000"+
-		"\u0000/0\u0005\u0004\u0000\u000001\u0003\u000e\u0007\u000012\u0005\u000e"+
-		"\u0000\u00002<\u0001\u0000\u0000\u000034\u0005\u0002\u0000\u000045\u0005"+
-		"\u0011\u0000\u00005<\u0005\u000e\u0000\u000067\u0005\u0011\u0000\u0000"+
-		"78\u0005\u0004\u0000\u000089\u0003\u0010\b\u00009:\u0005\u000e\u0000\u0000"+
-		":<\u0001\u0000\u0000\u0000;-\u0001\u0000\u0000\u0000;3\u0001\u0000\u0000"+
-		"\u0000;6\u0001\u0000\u0000\u0000<\t\u0001\u0000\u0000\u0000=>\u0005\b"+
-		"\u0000\u0000>?\u0005\u0011\u0000\u0000?D\u0005\u000e\u0000\u0000@A\u0005"+
-		"\t\u0000\u0000AB\u0005\u0011\u0000\u0000BD\u0005\u000e\u0000\u0000C=\u0001"+
-		"\u0000\u0000\u0000C@\u0001\u0000\u0000\u0000D\u000b\u0001\u0000\u0000"+
-		"\u0000EF\u0005\u0006\u0000\u0000FG\u0005\f\u0000\u0000GH\u0003\u0014\n"+
-		"\u0000HI\u0005\r\u0000\u0000IJ\u0003\u0004\u0002\u0000JR\u0001\u0000\u0000"+
-		"\u0000KL\u0005\u0007\u0000\u0000LM\u0005\f\u0000\u0000MN\u0003\u0014\n"+
-		"\u0000NO\u0005\r\u0000\u0000OP\u0003\u0004\u0002\u0000PR\u0001\u0000\u0000"+
-		"\u0000QE\u0001\u0000\u0000\u0000QK\u0001\u0000\u0000\u0000R\r\u0001\u0000"+
-		"\u0000\u0000ST\u0007\u0000\u0000\u0000T\u000f\u0001\u0000\u0000\u0000"+
-		"UZ\u0003\u000e\u0007\u0000VW\u0005\u0003\u0000\u0000WY\u0003\u0012\t\u0000"+
-		"XV\u0001\u0000\u0000\u0000Y\\\u0001\u0000\u0000\u0000ZX\u0001\u0000\u0000"+
-		"\u0000Z[\u0001\u0000\u0000\u0000[\u0011\u0001\u0000\u0000\u0000\\Z\u0001"+
-		"\u0000\u0000\u0000]^\u0003\u000e\u0007\u0000^\u0013\u0001\u0000\u0000"+
-		"\u0000_`\u0003\u000e\u0007\u0000`a\u0005\u0010\u0000\u0000ad\u0003\u000e"+
-		"\u0007\u0000bc\u0005\u000f\u0000\u0000ce\u0003\u0014\n\u0000db\u0001\u0000"+
-		"\u0000\u0000de\u0001\u0000\u0000\u0000e\u0015\u0001\u0000\u0000\u0000"+
-		"\b\u0019$+;CQZd";
+		"\u0006\u0003\u0006P\b\u0006\u0001\u0007\u0001\u0007\u0001\b\u0001\b\u0001"+
+		"\b\u0005\bW\b\b\n\b\f\bZ\t\b\u0001\t\u0001\t\u0001\t\u0001\t\u0001\t\u0003"+
+		"\ta\b\t\u0001\t\u0000\u0000\n\u0000\u0002\u0004\u0006\b\n\f\u000e\u0010"+
+		"\u0012\u0000\u0001\u0001\u0000\u0011\u0014b\u0000\u0017\u0001\u0000\u0000"+
+		"\u0000\u0002\u001b\u0001\u0000\u0000\u0000\u0004\u001e\u0001\u0000\u0000"+
+		"\u0000\u0006)\u0001\u0000\u0000\u0000\b9\u0001\u0000\u0000\u0000\nA\u0001"+
+		"\u0000\u0000\u0000\fO\u0001\u0000\u0000\u0000\u000eQ\u0001\u0000\u0000"+
+		"\u0000\u0010S\u0001\u0000\u0000\u0000\u0012[\u0001\u0000\u0000\u0000\u0014"+
+		"\u0015\u0003\u0002\u0001\u0000\u0015\u0016\u0003\u0004\u0002\u0000\u0016"+
+		"\u0018\u0001\u0000\u0000\u0000\u0017\u0014\u0001\u0000\u0000\u0000\u0017"+
+		"\u0018\u0001\u0000\u0000\u0000\u0018\u0019\u0001\u0000\u0000\u0000\u0019"+
+		"\u001a\u0005\u0000\u0000\u0001\u001a\u0001\u0001\u0000\u0000\u0000\u001b"+
+		"\u001c\u0005\u0001\u0000\u0000\u001c\u001d\u0005\u0011\u0000\u0000\u001d"+
+		"\u0003\u0001\u0000\u0000\u0000\u001e \u0005\n\u0000\u0000\u001f!\u0003"+
+		"\u0006\u0003\u0000 \u001f\u0001\u0000\u0000\u0000!\"\u0001\u0000\u0000"+
+		"\u0000\" \u0001\u0000\u0000\u0000\"#\u0001\u0000\u0000\u0000#$\u0001\u0000"+
+		"\u0000\u0000$%\u0005\u000b\u0000\u0000%\u0005\u0001\u0000\u0000\u0000"+
+		"&*\u0003\b\u0004\u0000\'*\u0003\n\u0005\u0000(*\u0003\f\u0006\u0000)&"+
+		"\u0001\u0000\u0000\u0000)\'\u0001\u0000\u0000\u0000)(\u0001\u0000\u0000"+
+		"\u0000*\u0007\u0001\u0000\u0000\u0000+,\u0005\u0002\u0000\u0000,-\u0005"+
+		"\u0011\u0000\u0000-.\u0005\u0004\u0000\u0000./\u0003\u0010\b\u0000/0\u0005"+
+		"\u000e\u0000\u00000:\u0001\u0000\u0000\u000012\u0005\u0002\u0000\u0000"+
+		"23\u0005\u0011\u0000\u00003:\u0005\u000e\u0000\u000045\u0005\u0011\u0000"+
+		"\u000056\u0005\u0004\u0000\u000067\u0003\u0010\b\u000078\u0005\u000e\u0000"+
+		"\u00008:\u0001\u0000\u0000\u00009+\u0001\u0000\u0000\u000091\u0001\u0000"+
+		"\u0000\u000094\u0001\u0000\u0000\u0000:\t\u0001\u0000\u0000\u0000;<\u0005"+
+		"\b\u0000\u0000<=\u0005\u0011\u0000\u0000=B\u0005\u000e\u0000\u0000>?\u0005"+
+		"\t\u0000\u0000?@\u0005\u0011\u0000\u0000@B\u0005\u000e\u0000\u0000A;\u0001"+
+		"\u0000\u0000\u0000A>\u0001\u0000\u0000\u0000B\u000b\u0001\u0000\u0000"+
+		"\u0000CD\u0005\u0006\u0000\u0000DE\u0005\f\u0000\u0000EF\u0003\u0012\t"+
+		"\u0000FG\u0005\r\u0000\u0000GH\u0003\u0004\u0002\u0000HP\u0001\u0000\u0000"+
+		"\u0000IJ\u0005\u0007\u0000\u0000JK\u0005\f\u0000\u0000KL\u0003\u0012\t"+
+		"\u0000LM\u0005\r\u0000\u0000MN\u0003\u0004\u0002\u0000NP\u0001\u0000\u0000"+
+		"\u0000OC\u0001\u0000\u0000\u0000OI\u0001\u0000\u0000\u0000P\r\u0001\u0000"+
+		"\u0000\u0000QR\u0007\u0000\u0000\u0000R\u000f\u0001\u0000\u0000\u0000"+
+		"SX\u0003\u000e\u0007\u0000TU\u0005\u0003\u0000\u0000UW\u0003\u000e\u0007"+
+		"\u0000VT\u0001\u0000\u0000\u0000WZ\u0001\u0000\u0000\u0000XV\u0001\u0000"+
+		"\u0000\u0000XY\u0001\u0000\u0000\u0000Y\u0011\u0001\u0000\u0000\u0000"+
+		"ZX\u0001\u0000\u0000\u0000[\\\u0003\u000e\u0007\u0000\\]\u0005\u0010\u0000"+
+		"\u0000]`\u0003\u000e\u0007\u0000^_\u0005\u000f\u0000\u0000_a\u0003\u0012"+
+		"\t\u0000`^\u0001\u0000\u0000\u0000`a\u0001\u0000\u0000\u0000a\u0013\u0001"+
+		"\u0000\u0000\u0000\b\u0017\")9AOX`";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

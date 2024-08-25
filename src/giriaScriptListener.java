@@ -115,18 +115,6 @@ public interface giriaScriptListener extends ParseTreeListener {
 	 */
 	void exitOperacaoMaquina(giriaScriptParser.OperacaoMaquinaContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code OperacaoMaquinaFim}
-	 * labeled alternative in {@link giriaScriptParser#operando_cauda}.
-	 * @param ctx the parse tree
-	 */
-	void enterOperacaoMaquinaFim(giriaScriptParser.OperacaoMaquinaFimContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code OperacaoMaquinaFim}
-	 * labeled alternative in {@link giriaScriptParser#operando_cauda}.
-	 * @param ctx the parse tree
-	 */
-	void exitOperacaoMaquinaFim(giriaScriptParser.OperacaoMaquinaFimContext ctx);
-	/**
 	 * Enter a parse tree produced by the {@code OperacaoCondicinaMaquina}
 	 * labeled alternative in {@link giriaScriptParser#condicao}.
 	 * @param ctx the parse tree

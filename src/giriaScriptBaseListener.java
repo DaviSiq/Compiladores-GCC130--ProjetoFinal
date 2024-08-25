@@ -124,18 +124,6 @@ public class giriaScriptBaseListener implements giriaScriptListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOperacaoMaquinaFim(giriaScriptParser.OperacaoMaquinaFimContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitOperacaoMaquinaFim(giriaScriptParser.OperacaoMaquinaFimContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterOperacaoCondicinaMaquina(giriaScriptParser.OperacaoCondicinaMaquinaContext ctx) { }
 	/**
 	 * {@inheritDoc}

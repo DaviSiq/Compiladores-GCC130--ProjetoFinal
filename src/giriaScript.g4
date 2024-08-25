@@ -17,7 +17,7 @@ FL: '|';
 LOGIC: 'and' | 'or' | 'not';
 RELAC: 'engual' | 'taChapano' | 'dmaior' | 'dmenor'; //operadores de comparação
 ID: LETRA(DIGITO|LETRA)*;
-NUM: DIGITO+('.'DIGITO)?;
+NUM: DIGITO+('.'DIGITO+)?;
 BOOL: 'dboa' | 'judas';
 STR: '"' ('\\' ["\\] | ~["\\\r\n])* '"' ;
 WS: [ \t\r\n]+ -> skip;
@@ -30,7 +30,7 @@ start: (declaracao algoritmo)? EOF #Inicializacao;
 declaracao: COD ID #BlocoInicial;
 algoritmo: AB (instr)+ FB #BlocoFuncional;
 instr: (atrib | interc | acao) #Funcionalidades;
-atrib: (TIPOS ID ATRIB valores FL
+atrib: (TIPOS ID ATRIB operacao FL
      | TIPOS ID FL
      | ID ATRIB operacao FL) #Atribuicao;
 interc: (ESC ID FL  //Escreve
@@ -38,6 +38,5 @@ interc: (ESC ID FL  //Escreve
 acao: (ER AP condicao FP algoritmo //Loop
     | EC AP condicao FP algoritmo) #Funcao ;//Condiconal
 valores: (ID | NUM | BOOL | STR) #TiposValores; // valor a ser atribuido
-operacao:(valores (ARIT operando_cauda)*) #OperacaoMaquina;
-operando_cauda: valores #OperacaoMaquinaFim;
+operacao:(valores (ARIT valores)*) #OperacaoMaquina;
 condicao: (valores RELAC valores (LOGIC condicao)?) #OperacaoCondicinaMaquina;

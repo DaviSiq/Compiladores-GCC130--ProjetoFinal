@@ -73,13 +73,6 @@ public interface giriaScriptVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitOperacaoMaquina(giriaScriptParser.OperacaoMaquinaContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code OperacaoMaquinaFim}
-	 * labeled alternative in {@link giriaScriptParser#operando_cauda}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitOperacaoMaquinaFim(giriaScriptParser.OperacaoMaquinaFimContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code OperacaoCondicinaMaquina}
 	 * labeled alternative in {@link giriaScriptParser#condicao}.
 	 * @param ctx the parse tree
