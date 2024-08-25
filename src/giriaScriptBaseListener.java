@@ -16,133 +16,133 @@ public class giriaScriptBaseListener implements giriaScriptListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterStart(giriaScriptParser.StartContext ctx) { }
+	@Override public void enterInicializacao(giriaScriptParser.InicializacaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitStart(giriaScriptParser.StartContext ctx) { }
+	@Override public void exitInicializacao(giriaScriptParser.InicializacaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDeclaracao(giriaScriptParser.DeclaracaoContext ctx) { }
+	@Override public void enterBlocoInicial(giriaScriptParser.BlocoInicialContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDeclaracao(giriaScriptParser.DeclaracaoContext ctx) { }
+	@Override public void exitBlocoInicial(giriaScriptParser.BlocoInicialContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAlgoritmo(giriaScriptParser.AlgoritmoContext ctx) { }
+	@Override public void enterBlocoFuncional(giriaScriptParser.BlocoFuncionalContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAlgoritmo(giriaScriptParser.AlgoritmoContext ctx) { }
+	@Override public void exitBlocoFuncional(giriaScriptParser.BlocoFuncionalContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterInstr(giriaScriptParser.InstrContext ctx) { }
+	@Override public void enterFuncionalidades(giriaScriptParser.FuncionalidadesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitInstr(giriaScriptParser.InstrContext ctx) { }
+	@Override public void exitFuncionalidades(giriaScriptParser.FuncionalidadesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAtrib(giriaScriptParser.AtribContext ctx) { }
+	@Override public void enterAtribuicao(giriaScriptParser.AtribuicaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAtrib(giriaScriptParser.AtribContext ctx) { }
+	@Override public void exitAtribuicao(giriaScriptParser.AtribuicaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterInterc(giriaScriptParser.IntercContext ctx) { }
+	@Override public void enterInteracao(giriaScriptParser.InteracaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitInterc(giriaScriptParser.IntercContext ctx) { }
+	@Override public void exitInteracao(giriaScriptParser.InteracaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAcao(giriaScriptParser.AcaoContext ctx) { }
+	@Override public void enterFuncao(giriaScriptParser.FuncaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAcao(giriaScriptParser.AcaoContext ctx) { }
+	@Override public void exitFuncao(giriaScriptParser.FuncaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterValores(giriaScriptParser.ValoresContext ctx) { }
+	@Override public void enterTiposValores(giriaScriptParser.TiposValoresContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitValores(giriaScriptParser.ValoresContext ctx) { }
+	@Override public void exitTiposValores(giriaScriptParser.TiposValoresContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOperacao(giriaScriptParser.OperacaoContext ctx) { }
+	@Override public void enterOperacaoMaquina(giriaScriptParser.OperacaoMaquinaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitOperacao(giriaScriptParser.OperacaoContext ctx) { }
+	@Override public void exitOperacaoMaquina(giriaScriptParser.OperacaoMaquinaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOperando_cauda(giriaScriptParser.Operando_caudaContext ctx) { }
+	@Override public void enterOperacaoMaquinaFim(giriaScriptParser.OperacaoMaquinaFimContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitOperando_cauda(giriaScriptParser.Operando_caudaContext ctx) { }
+	@Override public void exitOperacaoMaquinaFim(giriaScriptParser.OperacaoMaquinaFimContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCondicao(giriaScriptParser.CondicaoContext ctx) { }
+	@Override public void enterOperacaoCondicinaMaquina(giriaScriptParser.OperacaoCondicinaMaquinaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCondicao(giriaScriptParser.CondicaoContext ctx) { }
+	@Override public void exitOperacaoCondicinaMaquina(giriaScriptParser.OperacaoCondicinaMaquinaContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

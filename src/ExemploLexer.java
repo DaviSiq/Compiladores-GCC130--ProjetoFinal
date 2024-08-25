@@ -1,5 +1,5 @@
-import org.antlr.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.*;
+import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 import java.io.IOException;
 
@@ -8,18 +8,31 @@ public class ExemploLexer {
 
         System.out.println("Compiladores - Projeto Final");
         //Coloque o path do arquivo de teste da sua maquina aqui.
-        String filename = "C:\\Users\\marci\\Desktop\\Faculdade\\Compiladores\\Compiladores-GCC130--ProjetoFinal\\src\\fatorial_giriaScript.txt";
+        String filename = "C:\\Users\\marci\\Desktop\\Faculdade\\Compiladores\\Compiladores-GCC130--ProjetoFinal\\casosTeste\\fatorial_giriaScript.txt";
 
         try {
             CharStream input = CharStreams.fromFileName(filename);
             giriaScriptLexer lexer = new giriaScriptLexer(input);
-            CommonTokenStream tokens = new CommonTokenStream(lexer);
+
+            //Etapa 2
+            CommonTokenStream tokens = new CommonTokenStream(lexer); //Extrai um fluxo de token
             giriaScriptParser parser = new giriaScriptParser(tokens);
-            //Obtendo a arvore
-            ParserRuleContext ast = parser.start();
+            ParserRuleContext ast = parser.start(); // Gera minha arvore de simbolos a partir do simbolo inicial
 
             // Obtém a árvore de análise sintática a partir da regra 'inicio'
-            System.out.println(ast.toStringTree(parser));
+            // System.out.println(ast.toStringTree(parser));
+
+            //Etapa 3
+            MyListener myListener = new MyListener();
+
+            ParseTreeWalker walker = new ParseTreeWalker();
+
+            walker.walk(myListener, ast);
+
+            //Imprime a tabela de simbolos
+            // System.out.println(myListener.);
+
+
         }
         catch (IOException e ) {
             e.printStackTrace();

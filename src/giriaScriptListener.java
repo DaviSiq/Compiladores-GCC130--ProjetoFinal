@@ -7,113 +7,135 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface giriaScriptListener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by {@link giriaScriptParser#start}.
+	 * Enter a parse tree produced by the {@code Inicializacao}
+	 * labeled alternative in {@link giriaScriptParser#start}.
 	 * @param ctx the parse tree
 	 */
-	void enterStart(giriaScriptParser.StartContext ctx);
+	void enterInicializacao(giriaScriptParser.InicializacaoContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link giriaScriptParser#start}.
+	 * Exit a parse tree produced by the {@code Inicializacao}
+	 * labeled alternative in {@link giriaScriptParser#start}.
 	 * @param ctx the parse tree
 	 */
-	void exitStart(giriaScriptParser.StartContext ctx);
+	void exitInicializacao(giriaScriptParser.InicializacaoContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link giriaScriptParser#declaracao}.
+	 * Enter a parse tree produced by the {@code BlocoInicial}
+	 * labeled alternative in {@link giriaScriptParser#declaracao}.
 	 * @param ctx the parse tree
 	 */
-	void enterDeclaracao(giriaScriptParser.DeclaracaoContext ctx);
+	void enterBlocoInicial(giriaScriptParser.BlocoInicialContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link giriaScriptParser#declaracao}.
+	 * Exit a parse tree produced by the {@code BlocoInicial}
+	 * labeled alternative in {@link giriaScriptParser#declaracao}.
 	 * @param ctx the parse tree
 	 */
-	void exitDeclaracao(giriaScriptParser.DeclaracaoContext ctx);
+	void exitBlocoInicial(giriaScriptParser.BlocoInicialContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link giriaScriptParser#algoritmo}.
+	 * Enter a parse tree produced by the {@code BlocoFuncional}
+	 * labeled alternative in {@link giriaScriptParser#algoritmo}.
 	 * @param ctx the parse tree
 	 */
-	void enterAlgoritmo(giriaScriptParser.AlgoritmoContext ctx);
+	void enterBlocoFuncional(giriaScriptParser.BlocoFuncionalContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link giriaScriptParser#algoritmo}.
+	 * Exit a parse tree produced by the {@code BlocoFuncional}
+	 * labeled alternative in {@link giriaScriptParser#algoritmo}.
 	 * @param ctx the parse tree
 	 */
-	void exitAlgoritmo(giriaScriptParser.AlgoritmoContext ctx);
+	void exitBlocoFuncional(giriaScriptParser.BlocoFuncionalContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link giriaScriptParser#instr}.
+	 * Enter a parse tree produced by the {@code Funcionalidades}
+	 * labeled alternative in {@link giriaScriptParser#instr}.
 	 * @param ctx the parse tree
 	 */
-	void enterInstr(giriaScriptParser.InstrContext ctx);
+	void enterFuncionalidades(giriaScriptParser.FuncionalidadesContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link giriaScriptParser#instr}.
+	 * Exit a parse tree produced by the {@code Funcionalidades}
+	 * labeled alternative in {@link giriaScriptParser#instr}.
 	 * @param ctx the parse tree
 	 */
-	void exitInstr(giriaScriptParser.InstrContext ctx);
+	void exitFuncionalidades(giriaScriptParser.FuncionalidadesContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link giriaScriptParser#atrib}.
+	 * Enter a parse tree produced by the {@code Atribuicao}
+	 * labeled alternative in {@link giriaScriptParser#atrib}.
 	 * @param ctx the parse tree
 	 */
-	void enterAtrib(giriaScriptParser.AtribContext ctx);
+	void enterAtribuicao(giriaScriptParser.AtribuicaoContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link giriaScriptParser#atrib}.
+	 * Exit a parse tree produced by the {@code Atribuicao}
+	 * labeled alternative in {@link giriaScriptParser#atrib}.
 	 * @param ctx the parse tree
 	 */
-	void exitAtrib(giriaScriptParser.AtribContext ctx);
+	void exitAtribuicao(giriaScriptParser.AtribuicaoContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link giriaScriptParser#interc}.
+	 * Enter a parse tree produced by the {@code Interacao}
+	 * labeled alternative in {@link giriaScriptParser#interc}.
 	 * @param ctx the parse tree
 	 */
-	void enterInterc(giriaScriptParser.IntercContext ctx);
+	void enterInteracao(giriaScriptParser.InteracaoContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link giriaScriptParser#interc}.
+	 * Exit a parse tree produced by the {@code Interacao}
+	 * labeled alternative in {@link giriaScriptParser#interc}.
 	 * @param ctx the parse tree
 	 */
-	void exitInterc(giriaScriptParser.IntercContext ctx);
+	void exitInteracao(giriaScriptParser.InteracaoContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link giriaScriptParser#acao}.
+	 * Enter a parse tree produced by the {@code Funcao}
+	 * labeled alternative in {@link giriaScriptParser#acao}.
 	 * @param ctx the parse tree
 	 */
-	void enterAcao(giriaScriptParser.AcaoContext ctx);
+	void enterFuncao(giriaScriptParser.FuncaoContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link giriaScriptParser#acao}.
+	 * Exit a parse tree produced by the {@code Funcao}
+	 * labeled alternative in {@link giriaScriptParser#acao}.
 	 * @param ctx the parse tree
 	 */
-	void exitAcao(giriaScriptParser.AcaoContext ctx);
+	void exitFuncao(giriaScriptParser.FuncaoContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link giriaScriptParser#valores}.
+	 * Enter a parse tree produced by the {@code TiposValores}
+	 * labeled alternative in {@link giriaScriptParser#valores}.
 	 * @param ctx the parse tree
 	 */
-	void enterValores(giriaScriptParser.ValoresContext ctx);
+	void enterTiposValores(giriaScriptParser.TiposValoresContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link giriaScriptParser#valores}.
+	 * Exit a parse tree produced by the {@code TiposValores}
+	 * labeled alternative in {@link giriaScriptParser#valores}.
 	 * @param ctx the parse tree
 	 */
-	void exitValores(giriaScriptParser.ValoresContext ctx);
+	void exitTiposValores(giriaScriptParser.TiposValoresContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link giriaScriptParser#operacao}.
+	 * Enter a parse tree produced by the {@code OperacaoMaquina}
+	 * labeled alternative in {@link giriaScriptParser#operacao}.
 	 * @param ctx the parse tree
 	 */
-	void enterOperacao(giriaScriptParser.OperacaoContext ctx);
+	void enterOperacaoMaquina(giriaScriptParser.OperacaoMaquinaContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link giriaScriptParser#operacao}.
+	 * Exit a parse tree produced by the {@code OperacaoMaquina}
+	 * labeled alternative in {@link giriaScriptParser#operacao}.
 	 * @param ctx the parse tree
 	 */
-	void exitOperacao(giriaScriptParser.OperacaoContext ctx);
+	void exitOperacaoMaquina(giriaScriptParser.OperacaoMaquinaContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link giriaScriptParser#operando_cauda}.
+	 * Enter a parse tree produced by the {@code OperacaoMaquinaFim}
+	 * labeled alternative in {@link giriaScriptParser#operando_cauda}.
 	 * @param ctx the parse tree
 	 */
-	void enterOperando_cauda(giriaScriptParser.Operando_caudaContext ctx);
+	void enterOperacaoMaquinaFim(giriaScriptParser.OperacaoMaquinaFimContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link giriaScriptParser#operando_cauda}.
+	 * Exit a parse tree produced by the {@code OperacaoMaquinaFim}
+	 * labeled alternative in {@link giriaScriptParser#operando_cauda}.
 	 * @param ctx the parse tree
 	 */
-	void exitOperando_cauda(giriaScriptParser.Operando_caudaContext ctx);
+	void exitOperacaoMaquinaFim(giriaScriptParser.OperacaoMaquinaFimContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link giriaScriptParser#condicao}.
+	 * Enter a parse tree produced by the {@code OperacaoCondicinaMaquina}
+	 * labeled alternative in {@link giriaScriptParser#condicao}.
 	 * @param ctx the parse tree
 	 */
-	void enterCondicao(giriaScriptParser.CondicaoContext ctx);
+	void enterOperacaoCondicinaMaquina(giriaScriptParser.OperacaoCondicinaMaquinaContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link giriaScriptParser#condicao}.
+	 * Exit a parse tree produced by the {@code OperacaoCondicinaMaquina}
+	 * labeled alternative in {@link giriaScriptParser#condicao}.
 	 * @param ctx the parse tree
 	 */
-	void exitCondicao(giriaScriptParser.CondicaoContext ctx);
+	void exitOperacaoCondicinaMaquina(giriaScriptParser.OperacaoCondicinaMaquinaContext ctx);
 }

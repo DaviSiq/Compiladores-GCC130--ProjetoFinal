@@ -19,24 +19,25 @@ RELAC: 'engual' | 'taChapano' | 'dmaior' | 'dmenor'; //operadores de comparaçã
 ID: LETRA(DIGITO|LETRA)*;
 NUM: DIGITO+('.'DIGITO)?;
 BOOL: 'dboa' | 'judas';
+STR: '"' ('\\' ["\\] | ~["\\\r\n])* '"' ;
 WS: [ \t\r\n]+ -> skip;
 ERROR: .;
 
 fragment LETRA: [a-zA-Z];
 fragment DIGITO: [0-9];
 
-start: (declaracao algoritmo)? EOF;
-declaracao: COD ID;
-algoritmo: AB (instr)+ FB;
-instr: atrib | interc | acao ;
-atrib: TIPOS ID ATRIB valores FL
+start: (declaracao algoritmo)? EOF #Inicializacao;
+declaracao: COD ID #BlocoInicial;
+algoritmo: AB (instr)+ FB #BlocoFuncional;
+instr: (atrib | interc | acao) #Funcionalidades;
+atrib: (TIPOS ID ATRIB valores FL
      | TIPOS ID FL
-     | ID ATRIB operacao FL;
-interc: ESC ID FL  //Escreve
-    | LEIT ID FL; //Lê
-acao: ER AP condicao FP algoritmo //Loop
-    | EC AP condicao FP algoritmo ;//Condiconal
-valores: ID | NUM | BOOL; // valor a ser atribuido
-operacao: valores (ARIT operando_cauda)*;
-operando_cauda: valores;
-condicao: valores RELAC valores (LOGIC condicao)?;
+     | ID ATRIB operacao FL) #Atribuicao;
+interc: (ESC ID FL  //Escreve
+    | LEIT ID FL) #Interacao; //Lê
+acao: (ER AP condicao FP algoritmo //Loop
+    | EC AP condicao FP algoritmo) #Funcao ;//Condiconal
+valores: (ID | NUM | BOOL | STR) #TiposValores; // valor a ser atribuido
+operacao:(valores (ARIT operando_cauda)*) #OperacaoMaquina;
+operando_cauda: valores #OperacaoMaquinaFim;
+condicao: (valores RELAC valores (LOGIC condicao)?) #OperacaoCondicinaMaquina;

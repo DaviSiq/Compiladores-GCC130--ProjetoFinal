@@ -18,7 +18,7 @@ public class giriaScriptParser extends Parser {
 	public static final int
 		COD=1, TIPOS=2, ARIT=3, ATRIB=4, DF=5, ER=6, EC=7, ESC=8, LEIT=9, AB=10, 
 		FB=11, AP=12, FP=13, FL=14, LOGIC=15, RELAC=16, ID=17, NUM=18, BOOL=19, 
-		WS=20, ERROR=21;
+		STR=20, WS=21, ERROR=22;
 	public static final int
 		RULE_start = 0, RULE_declaracao = 1, RULE_algoritmo = 2, RULE_instr = 3, 
 		RULE_atrib = 4, RULE_interc = 5, RULE_acao = 6, RULE_valores = 7, RULE_operacao = 8, 
@@ -42,7 +42,7 @@ public class giriaScriptParser extends Parser {
 		return new String[] {
 			null, "COD", "TIPOS", "ARIT", "ATRIB", "DF", "ER", "EC", "ESC", "LEIT", 
 			"AB", "FB", "AP", "FP", "FL", "LOGIC", "RELAC", "ID", "NUM", "BOOL", 
-			"WS", "ERROR"
+			"STR", "WS", "ERROR"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -98,6 +98,18 @@ public class giriaScriptParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class StartContext extends ParserRuleContext {
+		public StartContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_start; }
+	 
+		public StartContext() { }
+		public void copyFrom(StartContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class InicializacaoContext extends StartContext {
 		public TerminalNode EOF() { return getToken(giriaScriptParser.EOF, 0); }
 		public DeclaracaoContext declaracao() {
 			return getRuleContext(DeclaracaoContext.class,0);
@@ -105,17 +117,14 @@ public class giriaScriptParser extends Parser {
 		public AlgoritmoContext algoritmo() {
 			return getRuleContext(AlgoritmoContext.class,0);
 		}
-		public StartContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_start; }
+		public InicializacaoContext(StartContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).enterStart(this);
+			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).enterInicializacao(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).exitStart(this);
+			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).exitInicializacao(this);
 		}
 	}
 
@@ -124,6 +133,7 @@ public class giriaScriptParser extends Parser {
 		enterRule(_localctx, 0, RULE_start);
 		int _la;
 		try {
+			_localctx = new InicializacaoContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(25);
@@ -155,19 +165,28 @@ public class giriaScriptParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class DeclaracaoContext extends ParserRuleContext {
-		public TerminalNode COD() { return getToken(giriaScriptParser.COD, 0); }
-		public TerminalNode ID() { return getToken(giriaScriptParser.ID, 0); }
 		public DeclaracaoContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_declaracao; }
+	 
+		public DeclaracaoContext() { }
+		public void copyFrom(DeclaracaoContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class BlocoInicialContext extends DeclaracaoContext {
+		public TerminalNode COD() { return getToken(giriaScriptParser.COD, 0); }
+		public TerminalNode ID() { return getToken(giriaScriptParser.ID, 0); }
+		public BlocoInicialContext(DeclaracaoContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).enterDeclaracao(this);
+			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).enterBlocoInicial(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).exitDeclaracao(this);
+			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).exitBlocoInicial(this);
 		}
 	}
 
@@ -175,6 +194,7 @@ public class giriaScriptParser extends Parser {
 		DeclaracaoContext _localctx = new DeclaracaoContext(_ctx, getState());
 		enterRule(_localctx, 2, RULE_declaracao);
 		try {
+			_localctx = new BlocoInicialContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(29);
@@ -196,6 +216,18 @@ public class giriaScriptParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class AlgoritmoContext extends ParserRuleContext {
+		public AlgoritmoContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_algoritmo; }
+	 
+		public AlgoritmoContext() { }
+		public void copyFrom(AlgoritmoContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class BlocoFuncionalContext extends AlgoritmoContext {
 		public TerminalNode AB() { return getToken(giriaScriptParser.AB, 0); }
 		public TerminalNode FB() { return getToken(giriaScriptParser.FB, 0); }
 		public List<InstrContext> instr() {
@@ -204,17 +236,14 @@ public class giriaScriptParser extends Parser {
 		public InstrContext instr(int i) {
 			return getRuleContext(InstrContext.class,i);
 		}
-		public AlgoritmoContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_algoritmo; }
+		public BlocoFuncionalContext(AlgoritmoContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).enterAlgoritmo(this);
+			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).enterBlocoFuncional(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).exitAlgoritmo(this);
+			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).exitBlocoFuncional(this);
 		}
 	}
 
@@ -223,6 +252,7 @@ public class giriaScriptParser extends Parser {
 		enterRule(_localctx, 4, RULE_algoritmo);
 		int _la;
 		try {
+			_localctx = new BlocoFuncionalContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(32);
@@ -258,6 +288,18 @@ public class giriaScriptParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class InstrContext extends ParserRuleContext {
+		public InstrContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_instr; }
+	 
+		public InstrContext() { }
+		public void copyFrom(InstrContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class FuncionalidadesContext extends InstrContext {
 		public AtribContext atrib() {
 			return getRuleContext(AtribContext.class,0);
 		}
@@ -267,17 +309,14 @@ public class giriaScriptParser extends Parser {
 		public AcaoContext acao() {
 			return getRuleContext(AcaoContext.class,0);
 		}
-		public InstrContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_instr; }
+		public FuncionalidadesContext(InstrContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).enterInstr(this);
+			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).enterFuncionalidades(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).exitInstr(this);
+			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).exitFuncionalidades(this);
 		}
 	}
 
@@ -285,12 +324,14 @@ public class giriaScriptParser extends Parser {
 		InstrContext _localctx = new InstrContext(_ctx, getState());
 		enterRule(_localctx, 6, RULE_instr);
 		try {
+			_localctx = new FuncionalidadesContext(_localctx);
+			enterOuterAlt(_localctx, 1);
+			{
 			setState(43);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case TIPOS:
 			case ID:
-				enterOuterAlt(_localctx, 1);
 				{
 				setState(40);
 				atrib();
@@ -298,7 +339,6 @@ public class giriaScriptParser extends Parser {
 				break;
 			case ESC:
 			case LEIT:
-				enterOuterAlt(_localctx, 2);
 				{
 				setState(41);
 				interc();
@@ -306,7 +346,6 @@ public class giriaScriptParser extends Parser {
 				break;
 			case ER:
 			case EC:
-				enterOuterAlt(_localctx, 3);
 				{
 				setState(42);
 				acao();
@@ -314,6 +353,7 @@ public class giriaScriptParser extends Parser {
 				break;
 			default:
 				throw new NoViableAltException(this);
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -329,6 +369,18 @@ public class giriaScriptParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class AtribContext extends ParserRuleContext {
+		public AtribContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_atrib; }
+	 
+		public AtribContext() { }
+		public void copyFrom(AtribContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class AtribuicaoContext extends AtribContext {
 		public TerminalNode TIPOS() { return getToken(giriaScriptParser.TIPOS, 0); }
 		public TerminalNode ID() { return getToken(giriaScriptParser.ID, 0); }
 		public TerminalNode ATRIB() { return getToken(giriaScriptParser.ATRIB, 0); }
@@ -339,17 +391,14 @@ public class giriaScriptParser extends Parser {
 		public OperacaoContext operacao() {
 			return getRuleContext(OperacaoContext.class,0);
 		}
-		public AtribContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_atrib; }
+		public AtribuicaoContext(AtribContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).enterAtrib(this);
+			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).enterAtribuicao(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).exitAtrib(this);
+			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).exitAtribuicao(this);
 		}
 	}
 
@@ -357,11 +406,13 @@ public class giriaScriptParser extends Parser {
 		AtribContext _localctx = new AtribContext(_ctx, getState());
 		enterRule(_localctx, 8, RULE_atrib);
 		try {
+			_localctx = new AtribuicaoContext(_localctx);
+			enterOuterAlt(_localctx, 1);
+			{
 			setState(59);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,3,_ctx) ) {
 			case 1:
-				enterOuterAlt(_localctx, 1);
 				{
 				setState(45);
 				match(TIPOS);
@@ -376,7 +427,6 @@ public class giriaScriptParser extends Parser {
 				}
 				break;
 			case 2:
-				enterOuterAlt(_localctx, 2);
 				{
 				setState(51);
 				match(TIPOS);
@@ -387,7 +437,6 @@ public class giriaScriptParser extends Parser {
 				}
 				break;
 			case 3:
-				enterOuterAlt(_localctx, 3);
 				{
 				setState(54);
 				match(ID);
@@ -399,6 +448,7 @@ public class giriaScriptParser extends Parser {
 				match(FL);
 				}
 				break;
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -414,21 +464,30 @@ public class giriaScriptParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class IntercContext extends ParserRuleContext {
-		public TerminalNode ESC() { return getToken(giriaScriptParser.ESC, 0); }
-		public TerminalNode ID() { return getToken(giriaScriptParser.ID, 0); }
-		public TerminalNode FL() { return getToken(giriaScriptParser.FL, 0); }
-		public TerminalNode LEIT() { return getToken(giriaScriptParser.LEIT, 0); }
 		public IntercContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_interc; }
+	 
+		public IntercContext() { }
+		public void copyFrom(IntercContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class InteracaoContext extends IntercContext {
+		public TerminalNode ESC() { return getToken(giriaScriptParser.ESC, 0); }
+		public TerminalNode ID() { return getToken(giriaScriptParser.ID, 0); }
+		public TerminalNode FL() { return getToken(giriaScriptParser.FL, 0); }
+		public TerminalNode LEIT() { return getToken(giriaScriptParser.LEIT, 0); }
+		public InteracaoContext(IntercContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).enterInterc(this);
+			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).enterInteracao(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).exitInterc(this);
+			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).exitInteracao(this);
 		}
 	}
 
@@ -436,11 +495,13 @@ public class giriaScriptParser extends Parser {
 		IntercContext _localctx = new IntercContext(_ctx, getState());
 		enterRule(_localctx, 10, RULE_interc);
 		try {
+			_localctx = new InteracaoContext(_localctx);
+			enterOuterAlt(_localctx, 1);
+			{
 			setState(67);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case ESC:
-				enterOuterAlt(_localctx, 1);
 				{
 				setState(61);
 				match(ESC);
@@ -451,7 +512,6 @@ public class giriaScriptParser extends Parser {
 				}
 				break;
 			case LEIT:
-				enterOuterAlt(_localctx, 2);
 				{
 				setState(64);
 				match(LEIT);
@@ -463,6 +523,7 @@ public class giriaScriptParser extends Parser {
 				break;
 			default:
 				throw new NoViableAltException(this);
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -478,6 +539,18 @@ public class giriaScriptParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class AcaoContext extends ParserRuleContext {
+		public AcaoContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_acao; }
+	 
+		public AcaoContext() { }
+		public void copyFrom(AcaoContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class FuncaoContext extends AcaoContext {
 		public TerminalNode ER() { return getToken(giriaScriptParser.ER, 0); }
 		public TerminalNode AP() { return getToken(giriaScriptParser.AP, 0); }
 		public CondicaoContext condicao() {
@@ -488,17 +561,14 @@ public class giriaScriptParser extends Parser {
 			return getRuleContext(AlgoritmoContext.class,0);
 		}
 		public TerminalNode EC() { return getToken(giriaScriptParser.EC, 0); }
-		public AcaoContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_acao; }
+		public FuncaoContext(AcaoContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).enterAcao(this);
+			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).enterFuncao(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).exitAcao(this);
+			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).exitFuncao(this);
 		}
 	}
 
@@ -506,11 +576,13 @@ public class giriaScriptParser extends Parser {
 		AcaoContext _localctx = new AcaoContext(_ctx, getState());
 		enterRule(_localctx, 12, RULE_acao);
 		try {
+			_localctx = new FuncaoContext(_localctx);
+			enterOuterAlt(_localctx, 1);
+			{
 			setState(81);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case ER:
-				enterOuterAlt(_localctx, 1);
 				{
 				setState(69);
 				match(ER);
@@ -525,7 +597,6 @@ public class giriaScriptParser extends Parser {
 				}
 				break;
 			case EC:
-				enterOuterAlt(_localctx, 2);
 				{
 				setState(75);
 				match(EC);
@@ -542,6 +613,7 @@ public class giriaScriptParser extends Parser {
 			default:
 				throw new NoViableAltException(this);
 			}
+			}
 		}
 		catch (RecognitionException re) {
 			_localctx.exception = re;
@@ -556,20 +628,30 @@ public class giriaScriptParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class ValoresContext extends ParserRuleContext {
-		public TerminalNode ID() { return getToken(giriaScriptParser.ID, 0); }
-		public TerminalNode NUM() { return getToken(giriaScriptParser.NUM, 0); }
-		public TerminalNode BOOL() { return getToken(giriaScriptParser.BOOL, 0); }
 		public ValoresContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_valores; }
+	 
+		public ValoresContext() { }
+		public void copyFrom(ValoresContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class TiposValoresContext extends ValoresContext {
+		public TerminalNode ID() { return getToken(giriaScriptParser.ID, 0); }
+		public TerminalNode NUM() { return getToken(giriaScriptParser.NUM, 0); }
+		public TerminalNode BOOL() { return getToken(giriaScriptParser.BOOL, 0); }
+		public TerminalNode STR() { return getToken(giriaScriptParser.STR, 0); }
+		public TiposValoresContext(ValoresContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).enterValores(this);
+			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).enterTiposValores(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).exitValores(this);
+			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).exitTiposValores(this);
 		}
 	}
 
@@ -578,11 +660,12 @@ public class giriaScriptParser extends Parser {
 		enterRule(_localctx, 14, RULE_valores);
 		int _la;
 		try {
+			_localctx = new TiposValoresContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(83);
 			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 917504L) != 0)) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 1966080L) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -605,6 +688,18 @@ public class giriaScriptParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class OperacaoContext extends ParserRuleContext {
+		public OperacaoContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_operacao; }
+	 
+		public OperacaoContext() { }
+		public void copyFrom(OperacaoContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class OperacaoMaquinaContext extends OperacaoContext {
 		public ValoresContext valores() {
 			return getRuleContext(ValoresContext.class,0);
 		}
@@ -618,17 +713,14 @@ public class giriaScriptParser extends Parser {
 		public Operando_caudaContext operando_cauda(int i) {
 			return getRuleContext(Operando_caudaContext.class,i);
 		}
-		public OperacaoContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_operacao; }
+		public OperacaoMaquinaContext(OperacaoContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).enterOperacao(this);
+			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).enterOperacaoMaquina(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).exitOperacao(this);
+			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).exitOperacaoMaquina(this);
 		}
 	}
 
@@ -637,7 +729,9 @@ public class giriaScriptParser extends Parser {
 		enterRule(_localctx, 16, RULE_operacao);
 		int _la;
 		try {
+			_localctx = new OperacaoMaquinaContext(_localctx);
 			enterOuterAlt(_localctx, 1);
+			{
 			{
 			setState(85);
 			valores();
@@ -658,6 +752,7 @@ public class giriaScriptParser extends Parser {
 				_la = _input.LA(1);
 			}
 			}
+			}
 		}
 		catch (RecognitionException re) {
 			_localctx.exception = re;
@@ -672,20 +767,29 @@ public class giriaScriptParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class Operando_caudaContext extends ParserRuleContext {
-		public ValoresContext valores() {
-			return getRuleContext(ValoresContext.class,0);
-		}
 		public Operando_caudaContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_operando_cauda; }
+	 
+		public Operando_caudaContext() { }
+		public void copyFrom(Operando_caudaContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class OperacaoMaquinaFimContext extends Operando_caudaContext {
+		public ValoresContext valores() {
+			return getRuleContext(ValoresContext.class,0);
+		}
+		public OperacaoMaquinaFimContext(Operando_caudaContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).enterOperando_cauda(this);
+			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).enterOperacaoMaquinaFim(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).exitOperando_cauda(this);
+			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).exitOperacaoMaquinaFim(this);
 		}
 	}
 
@@ -693,6 +797,7 @@ public class giriaScriptParser extends Parser {
 		Operando_caudaContext _localctx = new Operando_caudaContext(_ctx, getState());
 		enterRule(_localctx, 18, RULE_operando_cauda);
 		try {
+			_localctx = new OperacaoMaquinaFimContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(93);
@@ -712,6 +817,18 @@ public class giriaScriptParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class CondicaoContext extends ParserRuleContext {
+		public CondicaoContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_condicao; }
+	 
+		public CondicaoContext() { }
+		public void copyFrom(CondicaoContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class OperacaoCondicinaMaquinaContext extends CondicaoContext {
 		public List<ValoresContext> valores() {
 			return getRuleContexts(ValoresContext.class);
 		}
@@ -723,17 +840,14 @@ public class giriaScriptParser extends Parser {
 		public CondicaoContext condicao() {
 			return getRuleContext(CondicaoContext.class,0);
 		}
-		public CondicaoContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_condicao; }
+		public OperacaoCondicinaMaquinaContext(CondicaoContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).enterCondicao(this);
+			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).enterOperacaoCondicinaMaquina(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).exitCondicao(this);
+			if ( listener instanceof giriaScriptListener ) ((giriaScriptListener)listener).exitOperacaoCondicinaMaquina(this);
 		}
 	}
 
@@ -742,7 +856,9 @@ public class giriaScriptParser extends Parser {
 		enterRule(_localctx, 20, RULE_condicao);
 		int _la;
 		try {
+			_localctx = new OperacaoCondicinaMaquinaContext(_localctx);
 			enterOuterAlt(_localctx, 1);
+			{
 			{
 			setState(95);
 			valores();
@@ -763,6 +879,7 @@ public class giriaScriptParser extends Parser {
 			}
 
 			}
+			}
 		}
 		catch (RecognitionException re) {
 			_localctx.exception = re;
@@ -776,7 +893,7 @@ public class giriaScriptParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001\u0015g\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
+		"\u0004\u0001\u0016g\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
 		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0002\u0004\u0007\u0004\u0002"+
 		"\u0005\u0007\u0005\u0002\u0006\u0007\u0006\u0002\u0007\u0007\u0007\u0002"+
 		"\b\u0007\b\u0002\t\u0007\t\u0002\n\u0007\n\u0001\u0000\u0001\u0000\u0001"+
@@ -793,7 +910,7 @@ public class giriaScriptParser extends Parser {
 		"\u0007\u0001\b\u0001\b\u0001\b\u0005\bY\b\b\n\b\f\b\\\t\b\u0001\t\u0001"+
 		"\t\u0001\n\u0001\n\u0001\n\u0001\n\u0001\n\u0003\ne\b\n\u0001\n\u0000"+
 		"\u0000\u000b\u0000\u0002\u0004\u0006\b\n\f\u000e\u0010\u0012\u0014\u0000"+
-		"\u0001\u0001\u0000\u0011\u0013e\u0000\u0019\u0001\u0000\u0000\u0000\u0002"+
+		"\u0001\u0001\u0000\u0011\u0014e\u0000\u0019\u0001\u0000\u0000\u0000\u0002"+
 		"\u001d\u0001\u0000\u0000\u0000\u0004 \u0001\u0000\u0000\u0000\u0006+\u0001"+
 		"\u0000\u0000\u0000\b;\u0001\u0000\u0000\u0000\nC\u0001\u0000\u0000\u0000"+
 		"\fQ\u0001\u0000\u0000\u0000\u000eS\u0001\u0000\u0000\u0000\u0010U\u0001"+
